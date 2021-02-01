@@ -352,9 +352,11 @@ public class CitizensNPC extends AbstractNPC {
                 resetCachedCoord();
                 return;
             }
+            /* // let's just not try to swim
             if (data().get(NPC.SWIMMING_METADATA, true)) {
                 NMS.trySwim(getEntity());
             }
+             */
             navigator.run();
             if (SUPPORT_GLOWING) {
                 try {
