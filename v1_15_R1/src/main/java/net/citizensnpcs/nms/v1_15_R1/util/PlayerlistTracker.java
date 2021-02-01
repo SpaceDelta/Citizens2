@@ -32,6 +32,10 @@ public class PlayerlistTracker extends PlayerChunkMap.EntityTracker {
         if (tracker.dead)
             return;
         final EntityPlayer entityplayer = lastUpdatedPlayer;
+        // SpaceDelta start - hack/fix support for our async tracker
+        if (entityplayer == null)
+            return;
+        // SpaceDelta end
         NMS.sendTabListAdd(entityplayer.getBukkitEntity(), (Player) tracker.getBukkitEntity());
         if (!Setting.DISABLE_TABLIST.asBoolean())
             return;
